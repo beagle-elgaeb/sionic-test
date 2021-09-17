@@ -18,8 +18,6 @@ _[Ссылка на страницу на GitHub Pages](https://beagle-elgaeb.gi
   <img src="readme/icon-whitespace-5px.svg"/>
   <a href="https://ru.reactjs.org/"><img src="readme/icon-react.svg" alt="React"></a>
   <img src="readme/icon-whitespace-5px.svg"/>
-  <a href="https://formik.org/"><img src="readme/icon-formik.svg" alt="Formik"></a>
-  <img src="readme/icon-whitespace-5px.svg"/>
   <a href="https://styled-components.com/"><img src="readme/icon-styled-components.svg" alt="Styled-components"></a>
 </p>
 
@@ -33,11 +31,11 @@ _[Ссылка на страницу на GitHub Pages](https://beagle-elgaeb.gi
 
 ### Задачи проекта
 
--
+- Демонстрация компереций в соответствии с тестовым заданием
 
 ### Планы на дальнейшую реализацию проекта
 
--
+- Нет
 
 ### Как использовать
 
