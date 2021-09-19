@@ -7,8 +7,8 @@ export async function getCategories() {
   return handleResult(categories);
 }
 
-export async function getProducts() {
-  const url = `${baseUrl}/Products?range=[0,11]`;
+export async function getProducts(start) {
+  const url = `${baseUrl}/Products?range=[${start},${start+11}]`;
   const products = await fetch(url);
 
   return handleResult(products);

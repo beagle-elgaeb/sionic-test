@@ -16,7 +16,7 @@ function Main() {
   React.useEffect(() => {
     async function run() {
       try {
-        const products = await api.getProducts();
+        const products = await api.getProducts(0);
         setProducts(products);
         const categories = await api.getCategories();
         setCategories(categories);
