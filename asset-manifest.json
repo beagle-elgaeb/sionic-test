@@ -1,0 +1,30 @@
+{
+  "files": {
+    "main.css": "/sionic-test/static/css/main.cb6545c2.chunk.css",
+    "main.js": "/sionic-test/static/js/main.37fc32c5.chunk.js",
+    "main.js.map": "/sionic-test/static/js/main.37fc32c5.chunk.js.map",
+    "runtime-main.js": "/sionic-test/static/js/runtime-main.e4059d8a.js",
+    "runtime-main.js.map": "/sionic-test/static/js/runtime-main.e4059d8a.js.map",
+    "static/js/2.4b3bbbbe.chunk.js": "/sionic-test/static/js/2.4b3bbbbe.chunk.js",
+    "static/js/2.4b3bbbbe.chunk.js.map": "/sionic-test/static/js/2.4b3bbbbe.chunk.js.map",
+    "static/js/3.b94fd804.chunk.js": "/sionic-test/static/js/3.b94fd804.chunk.js",
+    "static/js/3.b94fd804.chunk.js.map": "/sionic-test/static/js/3.b94fd804.chunk.js.map",
+    "index.html": "/sionic-test/index.html",
+    "static/css/main.cb6545c2.chunk.css.map": "/sionic-test/static/css/main.cb6545c2.chunk.css.map",
+    "static/js/2.4b3bbbbe.chunk.js.LICENSE.txt": "/sionic-test/static/js/2.4b3bbbbe.chunk.js.LICENSE.txt",
+    "static/media/index.css": "/sionic-test/static/media/Raleway-SemiBold.243af299.ttf",
+    "static/media/baner-appstore.43b5c610.svg": "/sionic-test/static/media/baner-appstore.43b5c610.svg",
+    "static/media/baner-googleplay.5c6b63b2.svg": "/sionic-test/static/media/baner-googleplay.5c6b63b2.svg",
+    "static/media/icon-fb.9433256a.svg": "/sionic-test/static/media/icon-fb.9433256a.svg",
+    "static/media/icon-inst.4044b89d.svg": "/sionic-test/static/media/icon-inst.4044b89d.svg",
+    "static/media/icon-vk.c0d76e81.svg": "/sionic-test/static/media/icon-vk.c0d76e81.svg",
+    "static/media/image-free.a5d0391e.svg": "/sionic-test/static/media/image-free.a5d0391e.svg",
+    "static/media/image-new-collection-sweet.3580a979.jpg": "/sionic-test/static/media/image-new-collection-sweet.3580a979.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.e4059d8a.js",
+    "static/js/2.4b3bbbbe.chunk.js",
+    "static/css/main.cb6545c2.chunk.css",
+    "static/js/main.37fc32c5.chunk.js"
+  ]
+}
