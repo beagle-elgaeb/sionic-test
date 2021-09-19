@@ -1,26 +1,28 @@
-class Api {
-  constructor(options) {
-    this._baseUrl = options.baseUrl;
-    this._headers = options.headers;
-  }
+const baseUrl = "https://test2.sionic.ru/api";
 
-  getProducts() {
-    return fetch(`${this._baseUrl}/Products`).then(this._handleResult);
-  }
-
-  _handleResult(res) {
-    if (res.ok) {
-      return res.json();
-    }
-    return Promise.reject(`Статут ошибки: ${res.status}`);
-  }
+export function getCategories() {
+  return fetch(`${baseUrl}/Categories`).then(handleResult);
 }
 
-const api = new Api({
-  baseUrl: "https://test2.sionic.ru/api",
-  headers: {
-    "Content-Type": "application/json",
-  },
-});
+export function getProducts() {
+  return fetch(`${baseUrl}/Products?range=[0,11]  `).then(handleResult);
+}
 
-export default api;
+export function getProductImages(productID) {
+  return fetch(`${baseUrl}/ProductImages?filter={"product_id":${productID}}`).then(handleResult);
+}
+
+export function getSelectCategoryProducts(categorID) {
+  return fetch(`${baseUrl}/Products?filter={"category_id":${categorID}}`).then(handleResult);
+}
+
+export function getProductVariations(productID) {
+  return fetch(`${baseUrl}/ProductVariations?filter={"product_id":${productID}}`).then(handleResult);
+}
+
+function handleResult(res) {
+  if (res.ok) {
+    return res.json();
+  }
+  return Promise.reject(`Статут ошибки: ${res.status}`);
+}
