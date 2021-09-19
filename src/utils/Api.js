@@ -1,23 +1,38 @@
 const baseUrl = "https://test2.sionic.ru/api";
 
-export function getCategories() {
-  return fetch(`${baseUrl}/Categories`).then(handleResult);
+export async function getCategories() {
+  const url = `${baseUrl}/Categories`;
+  const categories = await fetch(url);
+
+  return handleResult(categories);
 }
 
-export function getProducts() {
-  return fetch(`${baseUrl}/Products?range=[0,11]  `).then(handleResult);
+export async function getProducts() {
+  const url = `${baseUrl}/Products?range=[0,11]`;
+  const products = await fetch(url);
+
+  return handleResult(products);
 }
 
-export function getProductImages(productID) {
-  return fetch(`${baseUrl}/ProductImages?filter={"product_id":${productID}}`).then(handleResult);
+export async function getProductImages(productID) {
+  const url = `${baseUrl}/ProductImages?filter={"product_id":${productID}}`;
+  const productImages = await fetch(url);
+
+  return handleResult(productImages);
 }
 
-export function getSelectCategoryProducts(categorID) {
-  return fetch(`${baseUrl}/Products?filter={"category_id":${categorID}}`).then(handleResult);
+export async function getSelectCategoryProducts(categorID) {
+  const url = `${baseUrl}/Products?filter={"category_id":${categorID}}`;
+  const products = await fetch(url);
+
+  return handleResult(products);
 }
 
-export function getProductVariations(productID) {
-  return fetch(`${baseUrl}/ProductVariations?filter={"product_id":${productID}}`).then(handleResult);
+export async function getProductVariations(productID) {
+  const url = `${baseUrl}/ProductVariations?filter={"product_id":${productID}}`;
+  const productVariations = await fetch(url);
+
+  return handleResult(productVariations);
 }
 
 function handleResult(res) {

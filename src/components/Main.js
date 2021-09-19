@@ -14,34 +14,29 @@ function Main() {
   const [categories, setCategories] = React.useState([]);
 
   React.useEffect(() => {
-    api
-      .getProducts()
-      .then((products) => {
+    async function run() {
+      try {
+        const products = await api.getProducts();
         setProducts(products);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-    api
-      .getCategories()
-      .then((categories) => {
+        const categories = await api.getCategories();
         setCategories(categories);
-      })
-      .catch((err) => {
+      } catch (err) {
         console.log(err);
-      });
+      }
+    }
+
+    run();
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  function selectCategory(category) {
-    api
-      .getSelectCategoryProducts(category.id)
-      .then((products) => {
-        setProducts(products);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+  async function selectCategory(category) {
+    try {
+      const products = await api.getSelectCategoryProducts(category.id);
+      setProducts(products);
+    } catch (err) {
+      console.log(err);
+    }
   }
 
   return (
