@@ -16,24 +16,17 @@ function Card({ product }) {
         setProductImage(images);
         const variations = await api.getProductVariations(product.id);
         setProductVariations(variations);
-        handleListValues(variations);
-        
-        function handleListValues(variations) {
-          variations.map(async (variation) => {
-            const values = await api.getProductVariationsPropertyValues(variation.id);
-            setProdVarPropVal(values);
-          });
-        }
 
-
+        variations.map(async (variation) => {
+          const values = await api.getProductVariationsPropertyValues(variation.id);
+          setProdVarPropVal(values);
+        });
       } catch (err) {
         console.log(err);
       }
     }
 
     run();
-
-
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [product]);

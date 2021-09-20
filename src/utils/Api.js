@@ -44,7 +44,7 @@ export async function getProductVariations(productID) {
 }
 
 export async function getProductVariationsPropertyValues(variationID) {
-  const url = `${baseUrl}/ProductVariationsPropertyValues?filter={"product_variation_id":${variationID}}`;
+  const url = `${baseUrl}/ProductVariationPropertyValues?filter={"product_variation_id":${variationID}}`;
   const values = await fetch(url);
 
   return handleResult(values);
