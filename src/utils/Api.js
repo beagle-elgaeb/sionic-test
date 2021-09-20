@@ -7,8 +7,14 @@ export async function getCategories() {
   return handleResult(categories);
 }
 
-export async function getProducts(start) {
-  const url = `${baseUrl}/Products?range=[${start},${start+11}]`;
+export async function getProducts(categoryID, start) {
+  let url;
+
+  if (start === 0) {
+    url = `${baseUrl}/Products?range=[${start},${start + 11}]`;
+  } else {
+    url = `${baseUrl}/Products?range=[${start},${start + 11}]&filter={"category_id":${categoryID}}`;
+  }
   const products = await fetch(url);
 
   return handleResult(products);
@@ -21,8 +27,10 @@ export async function getProductImages(productID) {
   return handleResult(productImages);
 }
 
-export async function getSelectCategoryProducts(categorID) {
-  const url = `${baseUrl}/Products?filter={"category_id":${categorID}}`;
+export async function getSelectCategoryProducts(categorID, start) {
+  const url = `${baseUrl}/Products?range=[${start},${
+    start + 11
+  }]&filter={"category_id":${categorID}}`;
   const products = await fetch(url);
 
   return handleResult(products);
@@ -33,6 +41,13 @@ export async function getProductVariations(productID) {
   const productVariations = await fetch(url);
 
   return handleResult(productVariations);
+}
+
+export async function getProductVariationsPropertyValues(variationID) {
+  const url = `${baseUrl}/ProductVariationsPropertyValues?filter={"product_variation_id":${variationID}}`;
+  const values = await fetch(url);
+
+  return handleResult(values);
 }
 
 function handleResult(res) {

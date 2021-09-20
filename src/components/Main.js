@@ -12,11 +12,12 @@ import newCollection from "../images/image-new-collection-sweet.jpg";
 function Main() {
   const [products, setProducts] = React.useState([]);
   const [categories, setCategories] = React.useState([]);
+  const [categoryId, setCategoryId] = React.useState();
 
   React.useEffect(() => {
     async function run() {
       try {
-        const products = await api.getProducts(0);
+        const products = await api.getProducts(categoryId, 0);
         setProducts(products);
         const categories = await api.getCategories();
         setCategories(categories);
@@ -32,8 +33,20 @@ function Main() {
 
   async function selectCategory(category) {
     try {
-      const products = await api.getSelectCategoryProducts(category.id);
+      const products = await api.getSelectCategoryProducts(category.id, 0);
       setProducts(products);
+      setCategoryId(category.id);
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
+  async function loadProducts() {
+    try {
+      const newProducts = await api.getProducts(categoryId, products.length);
+      setProducts([...products, ...newProducts]);
+      console.log(products);
+      console.log(newProducts);
     } catch (err) {
       console.log(err);
     }
@@ -71,6 +84,9 @@ function Main() {
             <Card key={product.id} product={product} />
           ))}
         </CardsList>
+        <LoadProductsButton type="button" onClick={loadProducts}>
+          Показать больше товаров
+        </LoadProductsButton>
       </Cards>
     </>
   );
@@ -241,11 +257,26 @@ const Cards = styled.section`
 
 const CardsList = styled.ul`
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(213px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(212px, 1fr));
   grid-column-gap: 20px;
   grid-row-gap: 30px;
   justify-content: center;
   list-style: none;
   margin: 0;
   padding: 0;
+`;
+
+const LoadProductsButton = styled.button`
+  width: 292px;
+  height: 50px;
+  display: block;
+  background: #f0f4fb;
+  border: none;
+  border-radius: 99em;
+  outline: none;
+  font-size: 16px;
+  line-height: 19px;
+  font-weight: 600;
+  color: #727280;
+  margin: 30px auto 55px auto;
 `;

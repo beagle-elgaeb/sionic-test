@@ -7,36 +7,53 @@ import * as api from "../utils/Api";
 function Card({ product }) {
   const [productImage, setProductImage] = React.useState([]);
   const [productVariations, setProductVariations] = React.useState([]);
+  const [prodVarPropVal, setProdVarPropVal] = React.useState([]);
 
   React.useEffect(() => {
-    api
-      .getProductImages(product.id)
-      .then((images) => {
+    async function run() {
+      try {
+        const images = await api.getProductImages(product.id);
         setProductImage(images);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-    api
-      .getProductVariations(product.id)
-      .then((variations) => {
+        const variations = await api.getProductVariations(product.id);
         setProductVariations(variations);
-      })
-      .catch((err) => {
+        handleListValues(variations);
+        
+        function handleListValues(variations) {
+          variations.map(async (variation) => {
+            const values = await api.getProductVariationsPropertyValues(variation.id);
+            setProdVarPropVal(values);
+          });
+        }
+
+
+      } catch (err) {
         console.log(err);
-      });
+      }
+    }
+
+    run();
+
+
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [product]);
+
+  function chooseMinPrice() {
+    const prices = productVariations.map((variation) => variation.price);
+    const price = Math.min(...prices);
+    return price;
+  }
 
   return (
     <Item>
       <VariationsList>
-        {productVariations.map((variation) => (
+        {prodVarPropVal.map((value) => (
           <Variation
             type="button"
-            key={variation.id}
+            key={value.id}
             colorIndex={Math.floor(Math.random() * colors.length)}
           >
-            {variation.stock}
+            {value.id}
           </Variation>
         ))}
       </VariationsList>
@@ -49,10 +66,10 @@ function Card({ product }) {
         }
       ></ProductImage>
       <ProductName>{product.name}</ProductName>
-      <Price>от 350 000 ₽</Price>
+      <Price>от {chooseMinPrice()} ₽</Price>
       <PriceWithSale>
         <PriceDisabled>450 000 ₽</PriceDisabled>
-        <Sale>-10%</Sale>
+        <Sale>-0%</Sale>
       </PriceWithSale>
       <Button type="submit">Добавить в корзину</Button>
     </Item>
