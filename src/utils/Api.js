@@ -50,6 +50,13 @@ export async function getProductVariationsPropertyValues(variationID) {
   return handleResult(values);
 }
 
+export async function getProductVariationPropertyListValues(variationID) {
+  const url = `${baseUrl}/ProductVariationPropertyListValues?filter={"product_variation_property_id":${variationID}}`;
+  const values = await fetch(url);
+
+  return handleResult(values);
+}
+
 function handleResult(res) {
   if (res.ok) {
     return res.json();

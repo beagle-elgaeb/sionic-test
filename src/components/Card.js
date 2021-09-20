@@ -8,6 +8,7 @@ function Card({ product }) {
   const [productImage, setProductImage] = React.useState([]);
   const [productVariations, setProductVariations] = React.useState([]);
   const [prodVarPropVal, setProdVarPropVal] = React.useState([]);
+  const [listValues, setListValues] = React.useState([]);
 
   React.useEffect(() => {
     async function run() {
@@ -20,6 +21,13 @@ function Card({ product }) {
         variations.map(async (variation) => {
           const values = await api.getProductVariationsPropertyValues(variation.id);
           setProdVarPropVal(values);
+
+          values.map(async (value) => {
+            const values = await api.getProductVariationPropertyListValues(
+              value.product_variation_property_id
+            );
+            setListValues(values);
+          });
         });
       } catch (err) {
         console.log(err);
@@ -40,23 +48,18 @@ function Card({ product }) {
   return (
     <Item>
       <VariationsList>
-        {prodVarPropVal.map((value) => (
+        {listValues.map((value) => (
           <Variation
             type="button"
             key={value.id}
             colorIndex={Math.floor(Math.random() * colors.length)}
           >
-            {value.id}
+            {value.title}
           </Variation>
         ))}
       </VariationsList>
       <ProductImage
-        url={
-          productImage.length &&
-          `https://test2.sionic.ru/${
-            productImage[Math.floor(Math.random() * productImage.length)].image_url
-          }`
-        }
+        url={productImage.length && `https://test2.sionic.ru/${productImage[0].image_url}`}
       ></ProductImage>
       <ProductName>{product.name}</ProductName>
       <Price>от {chooseMinPrice()} ₽</Price>
@@ -94,7 +97,7 @@ const ProductImage = styled.div`
 
 const VariationsList = styled.div`
   position: absolute;
-  top: 100px;
+  top: 60px;
   left: 11px;
 `;
 
