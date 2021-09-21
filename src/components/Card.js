@@ -7,7 +7,6 @@ import * as api from "../utils/Api";
 function Card({ product }) {
   const [productImage, setProductImage] = React.useState([]);
   const [productVariations, setProductVariations] = React.useState([]);
-  const [prodVarPropVal, setProdVarPropVal] = React.useState([]);
   const [listValues, setListValues] = React.useState([]);
 
   React.useEffect(() => {
@@ -20,7 +19,6 @@ function Card({ product }) {
 
         variations.map(async (variation) => {
           const values = await api.getProductVariationsPropertyValues(variation.id);
-          setProdVarPropVal(values);
 
           values.map(async (value) => {
             const values = await api.getProductVariationPropertyListValues(
