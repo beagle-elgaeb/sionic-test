@@ -56,16 +56,16 @@ _[Макет](https://www.figma.com/file/Eb6uT4Pjnk7O14q0YUXtJq/%D0%94%D0%BB%D1%
 ### Как использовать
 
 Установка сопутствующих библиотек:  
-`npm install`
+`yarn`
 
 Сборка:  
-`npm run build`
+`yarn build`
 
 Локальный запуск:  
-`npm run start`
+`yarn start`
 
 Деплой фронтенда на GH Pages:  
-`npm run deploy`
+`yarn deploy`
 
 ---
 
