@@ -1,55 +1,73 @@
-# Тестовое задание для Sionic
+# Тестовое задание от Sionic
 
-_[Ссылка на описание задания](https://sionic.ru/webreact)_
-_[Ссылка на страницу на GitHub Pages](https://beagle-elgaeb.github.io/sionic-test/)_
+[Задание](https://sionic.ru/webreact "Задание")  
+_[Ссылка на приложение](https://beagle-elgaeb.github.io/test-sionic/ "Приложение")_  
 
 <p>
   <a href="https://developer.mozilla.org/ru/docs/Web/CSS"><img src="readme/icon-css3.svg" alt="CSS3"></a>
-  <img src="readme/icon-whitespace-5px.svg"/>
+    <img src="readme/icon-whitespace-5px.svg"/>
   <a href="https://developer.mozilla.org/ru/docs/Glossary/HTML5"><img src="readme/icon-html5.svg" alt="HTML5"></a>
-  <img src="readme/icon-whitespace-5px.svg"/>
+    <img src="readme/icon-whitespace-5px.svg"/>
   <a href="https://developer.mozilla.org/ru/docs/Web/JavaScript"><img src="readme/icon-js.svg" alt="JS"></a>
-  <img src="readme/icon-whitespace-5px.svg"/>
-  <a href="https://npmjs.com/"><img src="readme/icon-npm.svg" alt="NPM"></a>
-  <img src="readme/icon-whitespace-5px.svg"/>
+    <img src="readme/icon-whitespace-5px.svg"/>
+  <a href="https://yarnpkg.com/"><img src="readme/icon-yarn.svg" alt="Yarn"></a>
+    <img src="readme/icon-whitespace-5px.svg"/>
   <a href="https://webpack.js.org/"><img src="readme/icon-webpack.svg" alt="WebPack"></a>
-  <img src="readme/icon-whitespace-5px.svg"/>
+    <img src="readme/icon-whitespace-5px.svg"/>
   <a href="https://ru.wikipedia.org/wiki/REST"><img src="readme/icon-api.svg" alt="REST API"></a>
-  <img src="readme/icon-whitespace-5px.svg"/>
+    <img src="readme/icon-whitespace-5px.svg"/>
   <a href="https://ru.reactjs.org/"><img src="readme/icon-react.svg" alt="React"></a>
-  <img src="readme/icon-whitespace-5px.svg"/>
+    <img src="readme/icon-whitespace-5px.svg"/>
   <a href="https://styled-components.com/"><img src="readme/icon-styled-components.svg" alt="Styled-components"></a>
 </p>
 
-### Описание
+### Задание
 
--
+Необходимо написать простое приложение на React.js с использованием Redux-ORM, которое получало бы список товаров и категорий по сети, выводило бы их на экране и предоставляло возможность добавлять их в корзину и создавать заказ.  
 
-### Функциональность проекта
+Корзина и заказ, ради простоты реализации, должны просто храниться локально.  
 
-- загрузка данных товаров с сервера;
-- используется css-in-js библиотека styled-components;
-- страница размещена на GitHub Pages;
-- страница адаптируется с контрольными точками: 320px, 400px, 650px, 820px, 1366px.
+_[Макет](https://www.figma.com/file/Eb6uT4Pjnk7O14q0YUXtJq/%D0%94%D0%BB%D1%8F-React.js-web-middle?node-id=0%3A1 "Ссылка на Фигму")_  
 
 ### Задачи проекта
 
-- Демонстрация компетенций в соответствии с тестовым заданием
+Демонстрация компетенций в соответствии с тестовым заданием.
 
-### Планы на дальнейшую реализацию проекта
+### Функциональность получившегося приложения
 
-- Нет
+В соответствии с заданием.  
+Также:  
+
+- используется css-in-js библиотека [styled-components](https://styled-components.com/ "Документация");
+- [страница размещена на GitHub Pages](https://beagle-elgaeb.github.io/test-sionic/ "Выполненое тестовое задание");
+- страница адаптируется с контрольными точками: 320px, 400px, 650px, 820px, 1366px.
+
+### Возможные улучшения
+
+- доделать задание.
+
+## Директории
+
+- `/src` — рабочая папка проекта;
+- `/images` — папка с картинками;
+- `/readme` — папка с иконками стека;
+- остальные директории вспомогательные, создаются при необходимости разработчиком.
 
 ### Как использовать
 
-Сборка:
-```npm run build```
+Установка сопутствующих библиотек:  
+`npm install`
 
-Локальный запуск:
-```npm start```
+Сборка:  
+`npm run build`
 
-Деплой на GH Pages:
-```npm run deploy```
+Локальный запуск:  
+`npm run start`
+
+Деплой фронтенда на GH Pages:  
+`npm run deploy`
+
+---
 
 ## Связаться со мной
 
